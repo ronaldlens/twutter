@@ -8,9 +8,9 @@ describe "StaticPages" do
       page.should have_content('Twutter')
     end
 
-    it "should have title 'Twutter | Home'" do
+    it "should have title 'Twutter'" do
       visit '/static_pages/home'
-      page.should have_selector('title', :text => 'Twutter | Home')
+      page.should have_selector('title', :text => 'Twutter')
     end
   end
 
