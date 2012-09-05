@@ -9,10 +9,15 @@ gem 'sqlite3'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
+  gem 'guard-rspec', '0.5.5'
+  gem 'terminal-notifier-guard'
+  gem 'guard-spork', '1.1.0'
+  gem 'spork', '0.9.2'
 end
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'rb-fsevent', '0.9.1', :require => false
 end
 
 # Gems used only for assets and not required
