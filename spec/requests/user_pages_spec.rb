@@ -40,7 +40,32 @@ describe "UserPages" do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
-    end      
+    end    
+
+    describe "with no username" do
+      before do
+        fill_in "Email",        with: "ronald@ronaldlens.com"
+        fill_in "Password",     with: "foobar"
+        fill_in "Confirmation", with: "foobar"
+        click_button submit
+      end
+
+      it { should have_selector('title', text: 'Sign up')}
+      it { should have_content('error')}
+    end
+
+    describe "with mismatching passwords" do
+      before do
+        fill_in "Name",         with: "ronaldlens"
+        fill_in "Email",        with: "ronald@ronaldlens.com"
+        fill_in "Password",     with: "foobar"
+        fill_in "Confirmation", with: "different"
+        click_button submit
+      end
+
+      it { should have_selector('title', text: 'Sign up')}
+      it { should have_content('error')}
+    end
   end
 
 end
