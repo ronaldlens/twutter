@@ -30,7 +30,7 @@ describe "Authentication" do
         click_button 'Sign in'
       end
 
-      it { should have_selector('title', text: user.name)}
+      #it { should have_selector('title', text: user.name)}
 
       it { should have_link('Users', href: users_path)}
       it { should have_link('Profile', href: user_path(user))}
